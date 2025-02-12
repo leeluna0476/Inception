@@ -1,14 +1,4 @@
 services:
-  # temp container to initialize nginx-static volume
-  init-nginx-static:
-    image: alpine:3.20
-    volumes:
-      - nginx-static:/usr/share/nginx/html
-      - ./requirements/nginx/html:/tmp/html:ro
-    command: >
-      sh -c "mkdir -p /usr/share/nginx/html && cp -r /tmp/html/* /usr/share/nginx/html"
-    restart: "no"
-
   mariadb:
     image: mariadb
     build:

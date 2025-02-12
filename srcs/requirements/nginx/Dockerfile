@@ -7,7 +7,7 @@ RUN chown -R www:www /var/lib/nginx
 COPY nginx.conf /etc/nginx
 
 RUN mkdir /www
-#COPY html/index.html /www
+COPY html/index.html /www
 RUN chown -R www:www /www
 
 CMD [ "nginx", "-g", "daemon off;" ]
