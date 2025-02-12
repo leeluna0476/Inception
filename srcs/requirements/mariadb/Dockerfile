@@ -1,12 +1,5 @@
 FROM alpine:3.20
 
-#write .env and keep it in local
-#ENV \
-#	MYSQL_USER= \
-#	MYSQL_DATABASE= \
-#	MYSQL_PASSWORD= \
-#	MYSQL_ROOT_PASSWORD= \
-
 RUN apk --update add mariadb mariadb-client; \
 	chown -R mysql:mysql /var/lib/mysql; \
 	mysql_install_db --user=mysql --datadir=/var/lib/mysql; \

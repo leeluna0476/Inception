@@ -1,0 +1,48 @@
+services:
+  # temp container to initialize nginx-static volume
+  init-nginx-static:
+    image: alpine:3.20
+    volumes:
+      - nginx-static:/usr/share/nginx/html
+      - ./requirements/nginx/html:/tmp/html:ro
+    command: >
+      sh -c "mkdir -p /usr/share/nginx/html && cp -r /tmp/html/* /usr/share/nginx/html"
+    restart: "no"
+
+  mariadb:
+    image: mariadb
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress-database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    container_name: mariadb
+    networks:
+      - inception
+
+  nginx:
+    image: nginx
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - nginx-static:/www
+    ports:
+      - "443:80"
+    depends_on:
+      - mariadb
+    container_name: nginx
+    networks:
+      - inception
+
+volumes:
+  nginx-static:
+  wordpress-database:
+
+networks:
+  inception:
