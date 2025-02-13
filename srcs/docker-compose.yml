@@ -20,19 +20,20 @@ services:
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
-    volumes:
-      - nginx-static:/www
     ports:
       - "443:80"
-    depends_on:
-      - mariadb
     container_name: nginx
     networks:
       - inception
 
 volumes:
-  nginx-static:
   wordpress-database:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+#      device: /Users/seojilee/data
+## might change later
 
 networks:
   inception:
