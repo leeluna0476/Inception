@@ -32,7 +32,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-#      device: /Users/seojilee/data
+      device: /home/seojilee/data
 ## might change later
 
 networks:
