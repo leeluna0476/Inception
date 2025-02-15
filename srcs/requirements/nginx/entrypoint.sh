@@ -1,4 +1,4 @@
 #!/bin/sh
 
-chown -R www:www /www
+chown -R www:www /var/lib/www
 nginx

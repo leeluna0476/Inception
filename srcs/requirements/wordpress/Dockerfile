@@ -8,6 +8,8 @@ RUN apk --update add \
   php83-openssl php83-tokenizer php83-fileinfo php83-common \
   curl
 
+COPY www.conf /etc/php83/php-fpm.d/www.conf
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 CMD [ "/usr/local/bin/entrypoint.sh" ]

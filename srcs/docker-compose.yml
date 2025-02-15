@@ -27,6 +27,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
     container_name: wordpress
     networks:
       - inception
@@ -39,7 +40,7 @@ services:
     ports:
       - "443:80"
     volumes:
-      - wordpress-files:/www/wordpress
+      - wordpress-files:/var/lib/www/wordpress
     container_name: nginx
     networks:
       - inception
