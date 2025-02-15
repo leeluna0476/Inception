@@ -5,9 +5,6 @@ RUN adduser -D -g 'www' www
 RUN chown -R www:www /var/lib/nginx
 
 COPY nginx.conf /etc/nginx
-
-RUN mkdir /www
-COPY html/index.html /www
-RUN chown -R www:www /www
-
-CMD [ "nginx", "-g", "daemon off;" ]
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+CMD [ "/usr/local/bin/entrypoint.sh" ]

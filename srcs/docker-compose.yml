@@ -15,6 +15,22 @@ services:
     networks:
       - inception
 
+  wordpress:
+    image: wordpress
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress-files:/var/lib/www/wordpress
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    container_name: wordpress
+    networks:
+      - inception
+
   nginx:
     image: nginx
     build:
@@ -22,6 +38,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "443:80"
+    volumes:
+      - wordpress-files:/www/wordpress
     container_name: nginx
     networks:
       - inception
@@ -32,7 +50,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/seojilee/data
+      device: /home/seojilee/data/database
+  wordpress-files:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/seojilee/data/files
+
 ## might change later
 
 networks:
