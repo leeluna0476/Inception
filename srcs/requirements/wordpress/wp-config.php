@@ -48,14 +48,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define('AUTH_KEY',         'dEq>8Buo]# 0FGU Hsma9xS-t/p}kMkoA?c$},xQ*aJ9n2>$,EY`8`@2PzN?aT0:');
+define('SECURE_AUTH_KEY',  'V7&*xH<>ua%5woWTsNh$|| OMO:tZ.w] YGOXQ%ky0w^-*<{?4|Dy37oaK}:6=|_');
+define('LOGGED_IN_KEY',    '9|65Z47oZ7.S8B)GA+k9;YoJ0(k`]^`RMXbB||1K=[)O1L|uu;olV=/.C<^&,HW3');
+define('NONCE_KEY',        'o+k>yyTgh2rP8l48;.gL:U.RrI:bqESIg[ 9/+$5W0IHD;&t]/umjTrrDjLMi<WM');
+define('AUTH_SALT',        'f ZA7<=9&#k S<@-dOo@98F(-S!O/WHv]fuima?>;`|rKJJ5psgwJ?woA%+Q~m${');
+define('SECURE_AUTH_SALT', 'dk?$4~Ku+0Z:aMMG?UOjby^5vHzn~C5,Y9!G7a1,(:<9AoKKH+Y$b051UaK+x4nO');
+define('LOGGED_IN_SALT',   'l;|>H)7+7B3b$c6el3PG5eOvKV4*!#fr)^y5#E]pU8CmsO2]xJg0q>pIa4{mUI:I');
+define('NONCE_SALT',       't=eaZTv)iT[%,K!0kY([bMt+})~Yd~4S5tDQ!LSb0i7]}?8kj#~VMLqvHz/DGH2*');
 
 /**#@-*/
 
@@ -99,3 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /** Sets up WordPress vars and included files. */
+
+define( 'WP_HOME', 'https://seojilee.42.fr' );
+define( 'WP_SITEURL', 'https://seojilee.42.fr' );
+require_once(ABSPATH . 'wp-settings.php');
